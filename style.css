@@ -13,10 +13,13 @@ h1, h2, h3, h4, p, a, div, span {
 	font-family: Helvetica, Arial, sans-serif;
 }
 strong {
-	font-weight: normal;
+	font-weight: bold;
 }
 p {
 	margin: 0;
+}
+p + p {
+	margin-top: 10px;
 }
 
 /* =============================================================================
@@ -63,7 +66,12 @@ h1, h2 {
 	padding: 0 20px;
 }
 
-h1 {
+#logo h1 {
+	font-weight: 400;
+	text-transform: none;
+	font-size: 2em;
+	line-height: 1em;
+	margin-top: 5px;
 }
 
 #logo, #logo:link, #logo:visited, #logo:hover, #logo:active {
@@ -84,15 +92,24 @@ h1 {
     padding: 0 10px;
 }
 #content article {
+	overflow: auto;
 	float: left;
 	width: calc(50% - 40px);
 	padding: 10px;
 	margin: 0 20px 20px;
 }
-#content article#osteopathie {
+#content article#osteopathie,
+#content article#training {
     float: none;
     width: calc(100% - 40px);
 }
+	#content article#osteopathie .content {
+		display: flex;
+	}
+		.column {
+			flex: 1;
+			padding: 0 20px;
+		}
 #content article ul {
 	text-align: left;
 }
@@ -107,10 +124,20 @@ h1 {
 	display: block;
 }
 #content header h1 {
-	margin: 15px auto 25px;
+	margin: 15px auto 40px;
 	display: block;
 	font-size: 24px;
 }
+#content h3 {
+	margin-bottom: 0;
+}
+	#content h3 .days {
+		font-size: 14px;
+		font-weight: 400;
+	}
+	#content h3 + ul {
+		margin-top: 5px;
+	}
 #content .content {
 	font-size: 14px;
 	/* text-align: justify; */
@@ -120,6 +147,45 @@ h1 {
 	font-size: 12px;
 	font-style: italic;
 }
+
+/* ------------ BOOK NOW BUTTON ------------ */
+a#book-now {
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	user-select: none;
+    cursor: pointer;
+	background-color: #107aca;
+	border-radius: 8px;
+	color: white;
+	padding: 15px 40px;
+	text-decoration: none;
+	box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+	transition: background-color .2s, box-shadow .2s;
+	z-index: 100;
+}
+	a#book-now:hover,
+	a#book-now:focus {
+		background-color: #045fae;
+	}
+	a#book-now:active {
+		background-color: #004080;
+		box-shadow: 2px 2px 6px rgba(0,0,0,.5);
+	}
+	a#book-now .label {
+		align-items: center;
+		display: flex !important;
+		font-weight: 700;
+		height: 100%;
+		justify-content: center;
+		color: white;
+		text-transform: uppercase;
+		font-size: 14px;
+		white-space: nowrap;
+	}
+	a#book-now .label svg {
+		margin-right: 10px;
+	}
 
 /* ------------ FOOTER ------------ */
 
@@ -169,11 +235,30 @@ footer span {
 	#content article {
 		float: none;
 		width: 100%;
-		margin: 20px auto;
+		margin: 40px auto;
 	}
-    #content article#osteopathie {
+    #content article#osteopathie,
+    #content article#training {
         width: 100%;
     }
+	#content article#osteopathie .content {
+		display: block;
+	}
+	#content article#training ul {
+		padding-left: 20px;
+	}
+	.column {
+		padding: 0;
+	}
+	.column + .column {
+		margin-top: 10px;
+	}
+	a#book-now {
+		bottom: 20px;
+		right: auto;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
 
 /* 768px and greater */
