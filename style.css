@@ -68,10 +68,16 @@ h1, h2 {
 
 #logo h1 {
 	font-weight: 400;
-	text-transform: none;
 	font-size: 2em;
 	line-height: 1em;
 	margin-top: 5px;
+	text-transform: none;
+}
+#logo h1 span {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+#logo h1 span:before {
+	content: ' - ';
 }
 
 #logo, #logo:link, #logo:visited, #logo:hover, #logo:active {
@@ -109,6 +115,9 @@ h1, h2 {
 		.column {
 			flex: 1;
 			padding: 0 20px;
+		}
+		#content article#training ul {
+			margin-top: 0;
 		}
 #content article ul {
 	text-align: left;
@@ -226,6 +235,15 @@ footer span {
 
 /* 768px and under */
 @media only screen and (max-width: 768px) {
+	#logo h1 span {
+		display: block;
+		/* font-size: .5em;
+		line-height: .5em; */
+		/* margin-top: 5px; */
+	}
+	#logo h1 span:before {
+		content: none;
+	}
 	header #colorBar .brick {
 		width: 10%;
 	}
